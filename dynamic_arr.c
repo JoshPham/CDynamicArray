@@ -10,6 +10,11 @@ int main() {
 
     int* arrPtr = (int*) malloc(size * sizeof(int));
 
+    if (arrPtr == NULL || size < 1) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 
@@ -47,8 +52,9 @@ int main() {
         printf("Type -1 if you want to see the full array again\n and -2 or less if you want to exit program.\n\n");
     }
 
+    free(arrPtr);
+
     printf("Exiting program...\n");
-    
 
     return 0;
 }
